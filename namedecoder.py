@@ -39,7 +39,15 @@ class Solution:
         # TODO: Write code below to return a string with the solution to the prompt
         id = id.split("0")
         list_2 = []
-        print(id)
+        if id[-1][0] in 'ABCDEFGHIJKLMNAOQRSTUVWXYZ':
+            for i in range(len(id[-1])):
+                if id[-1][i:].isdigit():
+                    string = id[-1][:i]
+                    num = id[-1][i:]
+                    break
+            id.pop()
+            id.append(string)
+            id.append(num)
         for i in id:
             if len(i) > 0:
                 list_2.append(i)
